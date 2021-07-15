@@ -3,6 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+var express = require ('express');
+var router = express.Router();
+const mysql = require ('mysql');
+
+
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Password1!',
+  database: 'fitConnect'
+});
+
+connection.connect(function(err){
+  if (err) {
+    console.error (err.message);
+    return;
+  }
+  console.log ('You are connected to the database!')
+});
+
+
+
+module.exports = router;
 
 ReactDOM.render(
   <React.StrictMode>
